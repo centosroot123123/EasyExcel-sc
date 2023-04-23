@@ -26,4 +26,4 @@ https://github.com/centosroot123123/EasyExcel-sc.git
 Translated with www.DeepL.com/Translator (free version)
 
 To communicate, please scan the WeChat QR code
-![微信.jpg](https://github.com/centosroot123123/EasyExcel-sc/blob/master/%E5%BE%AE%E4%BF%A1.jpg)
+![微信.jpg](https://github.com/centosroot123123/EasyExcel-sc/blob/master/src/main/resources/%E5%BE%AE%E4%BF%A1.jpg)
