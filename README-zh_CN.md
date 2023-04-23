@@ -24,4 +24,4 @@ https://github.com/centosroot123123/EasyExcel-sc.git
 4、启动服务后访问地址：``` http://localhost:8080/easy/excelImg ```
 
 交流请扫描微信二维码
-![微信.jpg](%CE%A2%D0%C5.jpg)
+![微信.jpg](https://github.com/centosroot123123/EasyExcel-sc/blob/master/%E5%BE%AE%E4%BF%A1.jpg)
