@@ -1,0 +1,68 @@
+# 配置端口
+server:
+  port: 8080
+#----------------mysql数据源配置-----------------------
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${mysql.url}?&serverTimezone=Asia/Shanghai&autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=CONVERT_TO_NULL&rewriteBatchedStatements=true
+    username: ${mysql.root}
+    password: ${mysql.password}
+    initialSize: 10
+    minIdle: 10
+    maxActive: 30
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DBHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+  #----------------mybatis plus配置-----------------------
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      maxRequestSize: 1000MB
+mybatis-plus:
+  # xml扫描，多个目录用逗号或者分号分隔(告诉 Mapper 所对应的 XML 文件位置)
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
+    map-underscore-to-camel-case: true
+    # 如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段
+    call-setters-on-nulls: true
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+  #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.excel.easy.db.entity
+  global-config:
+    banner: false
+    db-config:
+      #主键类型 AUTO:"数据库ID自增" INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: auto
+      #字段策略 IGNORED:"忽略判断"  NOT_NULL:"非 NULL 判断")  NOT_EMPTY:"非空判断"
+      field-strategy: NOT_EMPTY
+      #数据库类型
+      db-type: MYSQL
+      # 逻辑删除配置
+      # 删除前
+      logic-not-delete-value: 1
+      # 删除后
+      logic-delete-value: 0
+      # 数据库表名的前缀
+      table-prefix:
+
+#下面可修改
+ip: 127.0.0.1
+mysql:
+  url: ${ip}:3306/test
+  root: root
+  password: root
